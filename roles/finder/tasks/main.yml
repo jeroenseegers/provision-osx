@@ -1,0 +1,17 @@
+---
+# file: roles/finder/tasks/main.yml
+
+- name: Show all files in Finder
+  command: defaults write com.apple.finder AppleShowAllFiles -bool true
+
+- name: Default to list view in Finder
+  command: defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+
+- name: New window opens home directory
+  command: defaults write com.apple.finder NewWindowTarget -string "PfHm"
+
+- name: New window opens home directory
+  command: defaults write com.apple.finder NewWindowTargetPath -string "file:///Users/{{ user }}/"
+
+- name: Restart Finder
+  command: killall Finder

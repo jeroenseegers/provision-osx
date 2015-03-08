@@ -1,0 +1,26 @@
+---
+# file: roles/caskroom/tasks/main.yml
+
+- name: Install Cask apps
+  homebrew_cask: name={{ item }} state=installed
+  with_items:
+    - 1password
+    - alfred
+    - appcleaner
+    - bettertouchtool
+    - caffeine
+    - dropbox
+    - evernote
+    - firefox
+    - google-chrome
+    - iterm2
+    - karabiner
+    - ntfs-free
+    - paw
+    - sequel-pro
+    - skype
+    - spotify
+    - vagrant
+    - vagrant-manager
+    - virtualbox
+    - vlc

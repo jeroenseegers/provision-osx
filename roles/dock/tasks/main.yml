@@ -1,0 +1,20 @@
+---
+# file: roles/dock/tasks/main.yml
+
+- name: Enable dock autohide
+  command: defaults write com.apple.dock autohide -bool true
+
+- name: Remove dock autohide delay
+  command: defaults write com.apple.dock autohide-delay -float 0
+
+- name: Set dock icon size
+  command: defaults write com.apple.dock tilesize -int 45
+
+- name: Disable dock magnification
+  command: defaults write com.apple.dock magnification -bool false
+
+- name: Bottom align dock position
+  command: defaults write com.apple.dock orientation -string bottom
+
+- name: Restart dock
+  command: killall Dock

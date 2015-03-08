@@ -1,0 +1,21 @@
+---
+# file: roles/homebrew/tasks/main.yml
+
+- name: Homebrew taps
+  homebrew_tap: tap={{ item }} state=present
+  with_items:
+    - homebrew/dupes
+    - caskroom/cask
+
+- name: Install homebrew apps
+  homebrew: name={{ item }} state=latest
+  with_items:
+    - autoconf
+    - bash
+    - bash-completion
+    - brew-cask
+    - git
+    - tmux
+    - tree
+    - unrar
+    - vim

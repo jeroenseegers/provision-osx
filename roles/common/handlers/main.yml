@@ -1,0 +1,6 @@
+---
+# file: roles/common/handlers/main.yml
+
+- name: Start nginx
+  sudo: yes
+  service: name=nginx state=started

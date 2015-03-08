@@ -1,0 +1,23 @@
+---
+# file: roles/common/tasks/main.yml
+
+- name: Created Development directory
+  file: path=/Users/{{ user }}/Development state=directory
+
+- name: Clone dotfiles repository
+  git: repo=ssh://git@github.com/jeroenseegers/dotfiles.git
+       dest=/Users/{{ user }}/Development/dotfiles
+
+- name: Symlink dotfiles
+  file: path=/Users/{{ user }}/.{{ item }}
+        src=/Users/{{ user }}/Development/dotfiles/.{{ item }}
+        state=link
+  with_items:
+    - bash_aliases
+    - bash_functions
+    - bash_profile
+    - bash_profile_osx
+    - bashrc
+    - tmux.conf
+    - vim
+    - vimrc

@@ -7,6 +7,9 @@
 - name: Remove dock autohide delay
   command: defaults write com.apple.dock autohide-delay -float 0
 
+- name: Quicken animation when showing/hiding dock
+  command: defaults write com.apple.dock autohide-time-modifier -float 0.3
+
 - name: Set dock icon size
   command: defaults write com.apple.dock tilesize -int 45
 

@@ -19,5 +19,25 @@
 - name: Bottom align dock position
   command: defaults write com.apple.dock orientation -string bottom
 
+- name: Empty dock of applications
+  command: defaults write com.apple.dock persistent-apps -array
+
+- name: Add specific applications to dock
+  command: defaults write com.apple.dock persistent-apps -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>{{ item }}</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+  with_items:
+    - "/Applications/System Preferences.app"
+    - "/Users/{{ user }}/Applications/Google Chrome.app"
+    - "/Users/{{ user }}/Applications/iTerm.app"
+    - "/Users/{{ user }}/Applications/Spotify.app"
+
+- name: Empty dock of folders
+  command: defaults write com.apple.dock persistent-others -array
+
+- name: Add specific folders to dock
+  command: defaults write com.apple.dock persistent-others -array-add "<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>{{ item }}</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
+  with_items:
+    - "/Users/{{ user }}/Documents"
+    - "/Users/{{ user }}/Development"
+
 - name: Restart dock
   command: killall Dock

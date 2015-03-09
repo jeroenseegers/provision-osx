@@ -24,3 +24,18 @@
 
 - name: Init dotfiles submodules
   command: git submodule update --init chdir=/Users/{{ user }}/Development/dotfiles
+
+- name: Clear menubar
+  command: defaults write com.apple.systemuiserver menuExtras -array
+
+- name: Add default menubar icons
+  command: defaults write com.apple.systemuiserver menuExtras -array-add "{{ item }}"
+  with_items:
+    - "/System/Library/CoreServices/Menu Extras/Volume.menu"
+    - "/System/Library/CoreServices/Menu Extras/VPN.menu"
+    - "/System/Library/CoreServices/Menu Extras/AirPort.menu"
+    - "/System/Library/CoreServices/Menu Extras/Battery.menu"
+    - "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+- name: Restart SystemUIServer
+  command: killall SystemUIServer

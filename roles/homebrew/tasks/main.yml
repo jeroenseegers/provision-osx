@@ -7,6 +7,9 @@
     - homebrew/dupes
     - caskroom/cask
 
+- name: Update homebrew
+  homebrew: name=not_an_existing_package state=absent update_homebrew=yes
+
 - name: Install homebrew apps
   homebrew: name={{ item }} state=latest
   with_items:

@@ -22,5 +22,8 @@
 - name: Show the /Users/{{ user }}/Library folder
   command: chflags nohidden /Users/{{ user }}/Library
 
+- name: Show small icons in Finder sidebar
+  command: defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+
 - name: Restart Finder
   command: killall Finder

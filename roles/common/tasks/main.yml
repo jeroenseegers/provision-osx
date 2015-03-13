@@ -40,3 +40,6 @@
 
 - name: Restart SystemUIServer
   command: killall SystemUIServer
+
+- name: Disable "natural" scrolling
+  command: defaults write -g com.apple.swipescrolldirection -bool false

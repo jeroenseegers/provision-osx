@@ -7,6 +7,7 @@
 - name: Clone dotfiles repository
   git: repo=ssh://git@github.com/jeroenseegers/dotfiles.git
        dest=/Users/{{ user }}/Development/dotfiles
+       accept_hostkey=yes
 
 - name: Symlink dotfiles
   file: path=/Users/{{ user }}/.{{ item }}

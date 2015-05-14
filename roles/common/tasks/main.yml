@@ -50,3 +50,14 @@
     - LocalHostName
   become: yes
   become_method: sudo
+
+- command: fdesetup status
+  become: yes
+  become_method: sudo
+  register: filevault_status
+
+- name: Enable filevault
+  command: fdesetup enable
+  become: yes
+  become_method: sudo
+  when: filevault_status == "Filevault is Off."

@@ -22,4 +22,4 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
 fi
 
 # Run Ansible
-ansible-playbook -i ansible_hosts site.yml
+ansible-playbook -i ansible_hosts site.yml --ask-sudo-pass

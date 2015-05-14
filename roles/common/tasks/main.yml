@@ -22,7 +22,6 @@
     - tmux.conf
     - vim
     - vimrc
-    - gitconfig
 
 - name: Clear menubar
   command: defaults write com.apple.systemuiserver menuExtras -array

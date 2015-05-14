@@ -7,7 +7,7 @@ Provisioning details for OSX
 Be sure to generate a new SSH-key for use with GitHub.
 
 ```shell
-ssh-keygen -t rsa -C "your.github.email@domain.com"
+ssh-keygen -t rsa -b 4096 -C "your.github.email@domain.com"
 ssh-add -K /path/to/generated/key
 pbcopy < /path/to/generate/key
 ```

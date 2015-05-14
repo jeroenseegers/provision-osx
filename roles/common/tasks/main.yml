@@ -22,9 +22,7 @@
     - tmux.conf
     - vim
     - vimrc
-
-- name: Init dotfiles submodules
-  command: git submodule update --init chdir=/Users/{{ user }}/Development/dotfiles
+    - gitconfig
 
 - name: Clear menubar
   command: defaults write com.apple.systemuiserver menuExtras -array

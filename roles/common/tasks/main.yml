@@ -41,3 +41,10 @@
 
 - name: Disable "natural" scrolling
   command: defaults write -g com.apple.swipescrolldirection -bool false
+
+- name: Set name of computer
+  command: scutil --set {{ item }} "{{ computer_name }}"
+  with_items:
+    - ComputerName
+    - HostName
+    - LocalHostName

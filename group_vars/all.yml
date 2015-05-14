@@ -1,0 +1,4 @@
+---
+# File: group_vars/all.yml
+user: YOUR_LOCAL_USERNAME
+computer_name: YOUR_LOCAL_COMPUTER_NAME

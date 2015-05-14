@@ -2,7 +2,6 @@
 # file: site.yml
 
 - hosts: localhost
-  user: "{{ user }}"
   connection: local
   roles:
     - homebrew

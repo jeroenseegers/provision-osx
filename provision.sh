@@ -22,4 +22,4 @@ if [[ ! -x /usr/local/bin/ansible ]]; then
 fi
 
 # Run Ansible
-ansible-playbook -i ansible_hosts site.yml --extra-vars "user=${USER}"
+ansible-playbook -i ansible_hosts site.yml

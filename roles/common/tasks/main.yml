@@ -48,3 +48,5 @@
     - ComputerName
     - HostName
     - LocalHostName
+  become: yes
+  become_method: sudo

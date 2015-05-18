@@ -14,7 +14,6 @@
         src=/Users/{{ user }}/Development/dotfiles/.{{ item }}
         state=link
   with_items:
-    - bash_aliases
     - bash_functions
     - bash_profile
     - bash_profile_osx
@@ -22,6 +21,13 @@
     - tmux.conf
     - vim
     - vimrc
+
+- name: Copy dotfiles
+  copy: src=/Users/{{ user }}/Development/dotfiles/.{{ item }}
+        dest=/Users/{{ user }}/.{{ item }}
+  with_items:
+    - bash_aliases
+    - gitconfig
 
 - name: Clear menubar
   command: defaults write com.apple.systemuiserver menuExtras -array
@@ -56,7 +62,7 @@
   register: filevault_status
 
 - name: Enable FileVault at next login
-command: fdesetup enable -user {{ user }} -keychain -defer /Users/{{ user }}/Desktop/REMOVE_AFTER_REBOOT.plist -dontaskatlogout -forceatlogin 0
+  command: fdesetup enable -user {{ user }} -keychain -defer /Users/{{ user }}/Desktop/REMOVE_AFTER_REBOOT.plist -dontaskatlogout -forceatlogin 0
   become: yes
   become_method: sudo
   when: filevault_status.stdout == "FileVault is Off."
